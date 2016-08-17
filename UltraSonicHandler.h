@@ -10,11 +10,36 @@
 
 class UltraSonicHandler {
 	public:
+		/**
+		 * Intializes a Ultra Sonic Sensor
+		 * Takes in the int value of the trig and echo pins.
+		 */
 		UltraSonicHandler(int trigPin, int echoPin);
 		virtual ~UltraSonicHandler();
+
+		/**
+		 * Sends a pulse and translates the data into distance
+		 * Returns the distance in cm (-1 if greater than the threshold)
+		 */
 		long getDistance();
+
+		/**
+		 * Sends out several pulses and averages the results.
+		 * Takes in the amount of times to iterate
+		 * Returns averaged distance in cm (-1 if greater than threshold)
+		 */
 		long getAveragedDistance(int amount);
+
+		/**
+		 * Sends out a pulse and returns the data
+		 * Returns unaltered cm distance.
+		 */
 		long getRawDistance();
+
+		/**
+		 * Sends out a pulse
+		 * Probably wouldn't be used typically by itself.
+		 */
 		void sendPulse();
 	private:
 		int trigPin;
