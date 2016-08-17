@@ -18,4 +18,5 @@ The Motor Handler class can be used in your project if you want! Very basic to u
 ## Ultrasonic Handler Library
 The Ultrasonic handler class is also available to be ripped out of this project. Essentially, follow the same description as Motor Handler. If you want to do more advanced stuff with the calculations of the distance, just use the getRawDistance() method and do whatever extra math you'll like after with that value.
 
+## Other
 Questions/issues with this project? Make a ticket and I'll respond ASAP!
