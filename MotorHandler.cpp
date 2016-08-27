@@ -26,7 +26,7 @@ void MotorHandler::setSpeed(int percentage) {
 	// value higher than 100, it'll return with a warning. It
 	// also doesn't allow 0, stopping should be done with stop()
 	if (percentage <= 0 || percentage > 100) {
-		Serial.print(
+		Serial.println(
 				"WARNING: Speed percentage was set at a value out of the range of 1-100");
 		return;
 	}
@@ -35,7 +35,7 @@ void MotorHandler::setSpeed(int percentage) {
 	// (which is 255). So 100% as our input should define as
 	// 255. 50% should be defined as 127 (and not 127.5) and so on.
 	int pwmValue = (percentage / 100.0) * MAX_PWM;
-	analogWrite(pwmValue, pwmValue);
+	analogWrite(pwmPin, pwmValue);
 }
 
 // As per the description of the Motor Controller, setting
@@ -43,6 +43,7 @@ void MotorHandler::setSpeed(int percentage) {
 void MotorHandler::stop() {
 	digitalWrite(logicPin1, LOW);
 	digitalWrite(logicPin2, LOW);
+	analogWrite(pwmPin, 0);
 }
 
 // This may end up going the other way, if such a thing happens,
